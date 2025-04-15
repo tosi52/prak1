@@ -1,0 +1,449 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyN3tQtWMCJBczFOfIo5UINz",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/tosi52/prak1/blob/main/prak%205%20probstat\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "98ZZoRcOWMuY",
+        "outputId": "c4fa75a1-81a7-40a6-a276-6f0f85d91c18"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Probabilitas tinggi kurang dari 189 cm: 0.8413447460685429\n"
+          ]
+        }
+      ],
+      "source": [
+        "#Muhammad Zufar Rasyad\n",
+        "#0641024000017\n",
+        "\n",
+        "from scipy.stats import norm\n",
+        "\n",
+        "# Menentukan rata-rata dan standar deviasi\n",
+        "mean = 184 # rata-rata\n",
+        "std_dev = 5 # standar deviasi\n",
+        "# Menghitung probabilitas tinggi kurang dari 189 cm\n",
+        "\n",
+        "height = 189\n",
+        "prob_less_than_189 = norm.cdf(height, mean, std_dev)\n",
+        "\n",
+        "# Menampilkan hasil\n",
+        "print(\"Probabilitas tinggi kurang dari 189 cm:\", prob_less_than_189)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Muhammad Zufar Rasyad\n",
+        "#064102400017\n",
+        "\n",
+        "from scipy.stats import norm\n",
+        "\n",
+        "# Menentukan rata-rata dan standar deviasi\n",
+        "mean = 184 # rata-rata\n",
+        "std_dev = 5 # standar deviasi\n",
+        "\n",
+        "#Menghitung probabilitas tinggi kurang dari 174 cm\n",
+        "prob_less_than_174 = norm.cdf(174, mean, std_dev)\n",
+        "\n",
+        "# Menghitung probabilitas tinggi kurang dari 199 cm\n",
+        "prob_less_than_199 = norm.cdf(199, mean, std_dev)\n",
+        "\n",
+        "#Kemungkinan antara 174 cm dan 199 cm adalah selisih antara probabilitas kurang dari 199 dan kurang dari 174\n",
+        "prob_between_174_and_199 = prob_less_than_199 - prob_less_than_174\n",
+        "\n",
+        "\n",
+        "print(\"Probabilitas tinggi antara 174 cm dan 199 cm:\", prob_between_174_and_199)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ZHfzr-wkaFAc",
+        "outputId": "724ef227-8732-4b61-b9f3-fb1ef4406ad0"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Probabilitas tinggi antara 174 cm dan 199 cm: 0.9758999700201907\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Muhammad Zufar Rasyad\n",
+        "#064102400017\n",
+        "\n",
+        "from scipy.stats import norm\n",
+        "\n",
+        "# Menentukan rata-rata dan standar deviasi\n",
+        "mean = 173 # rata-rata\n",
+        "std_dev = 34 # standar deviasi\n",
+        "\n",
+        "# Menghitung probabilitas apel berkualitas \"not good\" (berat kurang dari 120 gram)\n",
+        "prob_not_good = norm.cdf(120, mean, std_dev)\n",
+        "\n",
+        "# Menampilkan hasil\n",
+        "print(\"Peluang apel yang berkualitas 'not good': {:.4f}\".format(prob_not_good))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1snxfuXga3ib",
+        "outputId": "d81297da-fb59-4542-86ae-521d61c0b15f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Peluang apel yang berkualitas 'not good': 0.0595\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Muhammad Zufar Rasyad\n",
+        "# 064102400017\n",
+        "\n",
+        "# Definisi laju kedatangan dan Laju pelayanan\n",
+        "arrival_rate = 1/10 # pelanggan per menit\n",
+        "service_rate = 1/8\n",
+        "# pelanggan per menit\n",
+        "# Menghitung rata-rata jumlah pelanggan dalam sistem (L)\n",
+        "L= arrival_rate / (service_rate - arrival_rate)\n",
+        "# Menghitung rata-rata waktu setiap pelanggan berada dalam sistem (W)\n",
+        "W=L/ arrival_rate\n",
+        "# Menampilkan hasil\n",
+        "print(\"Rata-rata jumlah pelanggan dalam sistem (L): {:.2f}\".format(L))\n",
+        "print(\"Rata-rata waktu setiap pelanggan berada dalam sistem (W): {:.2f}\".format(W))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ikCblE2hcB7J",
+        "outputId": "bd86b87b-6378-441f-d715-649114ba7fc0"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Rata-rata jumlah pelanggan dalam sistem (L): 4.00\n",
+            "Rata-rata waktu setiap pelanggan berada dalam sistem (W): 40.00\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Muhammad Zufar Rasyad\n",
+        "#064102400017\n",
+        "from scipy.stats import expon\n",
+        "# Rerata waktu pelayanan (mu)\n",
+        "mean_service_time = 7. #menit\n",
+        "#Menghitung peluang seseorang dilayani antara 3 sampai 5 menit\n",
+        "prob_between_3_and_5 = expon.cdf(5, scale=mean_service_time) - expon.cdf (3, scale=mean_service_time)\n",
+        "# Menampilkan hasil\n",
+        "print(\"Peluang seseorang dilayani antara 3 sampai 5 menit: {:.7f}\".format(prob_between_3_and_5))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_JQLzkmmfPas",
+        "outputId": "b5e62fb0-bbed-4586-d19a-85d1812df30f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Peluang seseorang dilayani antara 3 sampai 5 menit: 0.1618974\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Muhammad Zufar Rasyad\n",
+        "#064102400017\n",
+        "from scipy.stats import poisson\n",
+        "\n",
+        "# Rata-rata pelanggan per menit (A)\n",
+        "mean_arrival_rate = 5\n",
+        "\n",
+        "#Menghitung peluang Lebih dari 6 pelanggan tiba dalam periode 2 menit\n",
+        "prob_more_than_6_arrivals = 1 - poisson.cdf(6, mu=mean_arrival_rate * 2)\n",
+        "\n",
+        "#Menampilkan hasil\n",
+        "print(\"Peluang lebih dari 6 pelanggan akan tiba dalam periode 2 menit berikutnya: (:.7f)\".format(prob_more_than_6_arrivals))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "sKJp1KL-f9zd",
+        "outputId": "147440f5-0f40-47ae-fabb-adbaa0eecc07"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Peluang lebih dari 6 pelanggan akan tiba dalam periode 2 menit berikutnya: (:.7f)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Muhammad Zufar Rasyad\n",
+        "# 064102400017\n",
+        "from scipy.stats import norm\n",
+        "\n",
+        "# Menentukan rata-rata dan standar deviasi\n",
+        "mean = 184  # rata-rata\n",
+        "std_dev = 5  # standar deviasi\n",
+        "\n",
+        "# Probabilitas tinggi lebih tinggi dari tinggi tertentu\n",
+        "prob_more_than = 1 - 0.1685\n",
+        "\n",
+        "# Menggunakan fungsi quantile untuk menemukan tinggi yang sesuai\n",
+        "height = norm.ppf(prob_more_than, mean, std_dev)\n",
+        "\n",
+        "# Menampilkan hasil\n",
+        "print(\"Tinggi sedemikian rupa sehingga 16,85% pemain basket lebih tinggi dari {:.2f} cm\".format(height))\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "8PfEKHb2_9k3",
+        "outputId": "bb65bc22-605f-4660-c259-f25f04606d93"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Tinggi sedemikian rupa sehingga 16,85% pemain basket lebih tinggi dari 188.80 cm\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from scipy.stats import binom\n",
+        "\n",
+        "# Menentukan parameter distribusi binomial\n",
+        "n = 8     # total jumlah apel\n",
+        "p = 0.06  # probabilitas apel berkualitas \"not good\"\n",
+        "\n",
+        "# Menghitung probabilitas jumlah apel berkualitas \"not good\" kurang darii atau sama dengan 2\n",
+        "prob_not_good_2_or_less = binom.cdf(2, n, p)\n",
+        "\n",
+        "# Menampilkan hasil\n",
+        "print(\"Probabilitas kurang dari atau sama dengan 2 apel berkualitas 'not good': {:.7f}\".format(prob_not_good_2_or_less))\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0Y1SnHxJAZYh",
+        "outputId": "b77efe9c-8f10-41dc-acb3-5c34a576cccb"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Probabilitas kurang dari atau sama dengan 2 apel berkualitas 'not good': 0.9903771\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Definisi laju kedatangan dan laju pelayanan\n",
+        "arrival_rate_new = 1/16  # pelanggan per menit\n",
+        "service_rate = 1/10\n",
+        "\n",
+        "# Menghitung ulang rata-rata jumlah pelanggan dalam sistem (L)\n",
+        "L_new = arrival_rate_new / (service_rate - arrival_rate_new)\n",
+        "\n",
+        "# Menghitung ulang rata-rata waktu setiap pelanggan berada dalam sistem (W)\n",
+        "W_new = L_new / arrival_rate_new\n",
+        "\n",
+        "# Menampilkan hasil\n",
+        "print(\"Rata-rata jumlah pelanggan dalam sistem (L) setelah perubahan: {:.2f}\".format(L_new))\n",
+        "print(\"Rata-rata waktu setiap pelanggan berada dalam sistem (W) setelah perubahan: {:.2f}\".format(W_new))\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "vtrvuvFBAlSw",
+        "outputId": "603311fe-bb68-4464-e339-86366c77cb7e"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Rata-rata jumlah pelanggan dalam sistem (L) setelah perubahan: 1.67\n",
+            "Rata-rata waktu setiap pelanggan berada dalam sistem (W) setelah perubahan: 26.67\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from scipy.stats import expon\n",
+        "\n",
+        "# Rerata waktu pelayanan (mu)\n",
+        "mean_service_time = 7  # menit\n",
+        "\n",
+        "# Menghitung peluang seseorang mendapatkan pelayanan lebih dari 8 menit\n",
+        "prob_more_than_8_minutes = 1 - expon.cdf(8, scale=mean_service_time)\n",
+        "\n",
+        "# Menampilkan hasil\n",
+        "print(\"Peluang seseorang mendapatkan pelayanan lebih dari 8 menit: {:.7f}\".format(prob_more_than_8_minutes))\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "gV14GguNBl70",
+        "outputId": "a3b87624-16e2-4bd1-cc90-6e96c2a24261"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Peluang seseorang mendapatkan pelayanan lebih dari 8 menit: 0.3189066\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from scipy.stats import poisson\n",
+        "\n",
+        "# Rata-rata pelanggan per menit (λ)\n",
+        "mean_arrival_rate = 5\n",
+        "\n",
+        "# Menghitung peluang tepat 4 pelanggan akan datang dalam 1 menit\n",
+        "prob_4_arrivals = poisson.pmf(4, mu=mean_arrival_rate)\n",
+        "\n",
+        "# Menampilkan hasil\n",
+        "print(\"Peluang bahwa dalam 1 menit berikutnya terdapat tepat 4 pelanggan yang akan datang: {:.7f}\".format(prob_4_arrivals))\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "tc16K8gSB15G",
+        "outputId": "5fcdb201-97f5-407d-eacf-80fc7e77bef1"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Peluang bahwa dalam 1 menit berikutnya terdapat tepat 4 pelanggan yang akan datang: 0.1754674\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Rata-rata pelanggan per menit\n",
+        "mean_arrival_rate = 5\n",
+        "\n",
+        "# Menghitung rata-rata jumlah kedatangan selama periode 1 jam\n",
+        "mean_arrivals_per_hour = mean_arrival_rate * 60  # 60 menit dalam satu jam\n",
+        "\n",
+        "# Menampilkan hasil\n",
+        "print(\"Rata-rata jumlah kedatangan selama periode 1 jam: {:.2f}\".format(mean_arrivals_per_hour))\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "W0zJhX0XCDw_",
+        "outputId": "93a6b02d-eef3-4239-c9fe-ac88c8227daf"
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Rata-rata jumlah kedatangan selama periode 1 jam: 300.00\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
